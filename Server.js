@@ -8,7 +8,8 @@ const fs = require('fs');
 
 
 const corsorg = {
-    origin:'https://reactjs-crudapp.netlify.app'
+    // origin:'https://reactjs-crudapp.netlify.app'
+    origin:'http://localhost:3000'
 }
 
 app.use(cors(corsorg));
