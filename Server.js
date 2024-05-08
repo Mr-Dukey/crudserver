@@ -29,7 +29,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // Connect to MongoDB
-mongoose.connect('mongodb://0.0.0.0:27017/Banner', {
+mongoose.connect('mongodb+srv://root:root@cluster0.cvvq99e.mongodb.net/CrudServer', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
