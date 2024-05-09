@@ -10,7 +10,7 @@ const fs = require('fs');
 
 const corsorg = {
     // origin:''
-    origin:process.env.LOCAL_URL
+    origin:process.env.CORSURL
 }
 
 app.use(cors(corsorg));
@@ -116,7 +116,6 @@ app.delete('/delete/:id',function(req,res){
 
 
 // Start the server
-const PORT = 1200;
-app.listen(PORT, () => {
+app.listen(process.env.PORT, () => {
     console.log(`Server listening on port ${PORT}`);
 });
