@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -8,8 +9,8 @@ const fs = require('fs');
 
 
 const corsorg = {
-    // origin:'https://reactjs-crudapp.netlify.app'
-    origin:'http://localhost:3000'
+    // origin:''
+    origin:process.env.LOCAL_URL
 }
 
 app.use(cors(corsorg));
@@ -17,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Multer storage configuration
-const storage = multer.diskStorage({
+const storage = multer.memoryStorage({
     destination: (req, file, cb) => {
         cb(null, 'uploads/');
     },
@@ -30,7 +31,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://root:root@cluster0.cvvq99e.mongodb.net/CrudServer', {
+mongoose.connect(process.env.MONGOURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
