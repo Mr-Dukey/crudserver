@@ -117,5 +117,5 @@ app.delete('/delete/:id',function(req,res){
 
 // Start the server
 app.listen(process.env.PORT, () => {
-    console.log(`Server listening on port ${PORT}`);
+    console.log(`Server listening on port ${process.env.PORT}`);
 });
